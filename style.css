@@ -1,0 +1,123 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --accent: #4f46e5;
+  --danger: #dc2626;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header { text-align: center; padding: 2rem 1rem 1rem; }
+header p { color: var(--muted); }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (max-width: 760px) {
+  main { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  align-self: start;
+}
+
+label { display: block; margin-bottom: 0.75rem; font-weight: 600; font-size: 0.9rem; }
+
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.55rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font: inherit;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+button.danger { background: var(--danger); }
+.actions { display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+
+.toolbar { display: flex; gap: 0.5rem; }
+#count, .empty { color: var(--muted); }
+
+.project {
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+}
+.project h3 { margin: 0.4rem 0; }
+.project p { margin: 0.25rem 0; }
+
+.badge {
+  display: inline-block;
+  background: #eef2ff;
+  color: var(--accent);
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tags span { color: var(--muted); font-size: 0.85rem; margin-right: 0.4rem; }
+
+/* Keep hidden elements hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* Project thumbnail */
+.project-thumbnail {
+  display: block;
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 12px 0;
+}
+
+/* Make toolbar responsive */
+.toolbar {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.toolbar input,
+.toolbar select {
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Project cards */
+.project {
+  margin-bottom: 1rem;
+}

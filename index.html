@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>My Portfolio Manager</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <p>Add, edit and organize your work by category.</p>
+  </header>
+
+  <main>
+
+    <!-- Project Form -->
+    <section class="card">
+
+      <h2 id="form-title">Add a project</h2>
+
+      <form id="project-form">
+
+        <input type="hidden" id="project-id" />
+
+        <label>
+          Title
+          <input type="text" id="title" required />
+        </label>
+
+        <label>
+          Year
+          <input
+            type="number"
+            id="year"
+            min="1900"
+            max="2100"
+            required
+          />
+        </label>
+
+        <label>
+          Category
+          <select id="category" required>
+            <option value="">Choose a category...</option>
+          </select>
+        </label>
+
+        <label>
+          Description
+          <textarea id="description" rows="3"></textarea>
+        </label>
+
+        <label>
+          Tags (comma separated)
+          <input
+            type="text"
+            id="tags"
+            placeholder="javascript, api"
+          />
+        </label>
+
+        <label>
+          Link
+          <input
+            type="url"
+            id="link"
+            placeholder="https://..."
+          />
+        </label>
+
+        <label>
+          Image URL (Thumbnail)
+          <input
+            type="url"
+            id="image"
+            placeholder="https://example.com/image.jpg"
+          />
+        </label>
+
+        <label>
+          Upload Project Image
+          <input
+            type="file"
+            id="image-file"
+            accept="image/*"
+          />
+        </label>
+
+        <label>
+          <input type="checkbox" id="featured" />
+          Featured project ⭐
+        </label>
+
+        <div class="actions">
+
+          <button type="submit">
+            Save project
+          </button>
+
+          <button
+            type="button"
+            id="cancel-btn"
+            hidden
+          >
+            Cancel
+          </button>
+
+        </div>
+
+      </form>
+
+      <hr />
+
+      <!-- Category Manager -->
+      <section class="category-manager">
+
+        <h2>Manage Categories</h2>
+
+        <p>Add your own project categories.</p>
+
+        <form id="category-form">
+
+          <label>
+            New Category
+            <input
+              type="text"
+              id="category-name"
+              placeholder="Example: Photography"
+              required
+              maxlength="50"
+            />
+          </label>
+
+          <button type="submit">
+            Add Category
+          </button>
+
+        </form>
+
+        <h3>Saved Categories</h3>
+
+        <ul id="category-list"></ul>
+
+      </section>
+
+    </section>
+
+    <!-- Project List -->
+    <section class="card">
+
+      <div class="toolbar">
+
+        <input
+          type="search"
+          id="search"
+          placeholder="Search title or tags..."
+        />
+
+        <select id="filter">
+          <option value="All">All categories</option>
+        </select>
+
+      </div>
+
+      <p id="count"></p>
+
+      <div class="actions">
+
+        <button type="button" id="export-btn">
+          Export JSON
+        </button>
+
+        <button type="button" id="import-btn">
+          Import JSON
+        </button>
+
+        <button
+          type="button"
+          id="clear-all-btn"
+          class="danger"
+        >
+          Clear All Projects
+        </button>
+
+        <input
+          type="file"
+          id="import-file"
+          accept=".json,application/json"
+          hidden
+        />
+
+      </div>
+
+      <div id="project-list"></div>
+
+    </section>
+
+  </main>
+
+  <!-- Application JavaScript (ES Module for Firebase SDK) -->
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>
